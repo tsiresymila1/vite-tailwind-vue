@@ -1,7 +1,7 @@
 <template>
   <button
     :="$attrs"
-    :class="`font-[Conduit] px-4 py-2 rounded-md active:bg-opacity-75 hover:bg-opacity-75 ${$attrs.class}`"
+    :className="`font-[Conduit] px-4 py-2 rounded-md active:bg-opacity-75 hover:bg-opacity-75 ${$attrs.class}`"
     >
     <slot></slot>
   </button>

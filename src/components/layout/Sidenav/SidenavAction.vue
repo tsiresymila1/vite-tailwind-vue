@@ -1,14 +1,11 @@
 <template>
-  <button
-    :="$attrs"
-    class="flex my-1 text-gray-300 pl-8 py-4 hover:text-gray-300 cursor-pointer bg-[var(--app-second-color) hover:bg-[var(--app-second-color)] mx-4 rounded-lg focus:bg-[var(--app-second-color)]"
-    :class="active ? 'bg-[var(--app-second-color)]' : ''"
-    @click="redirect"
-  >
-    <span class="mr-4">
+  <button :="$attrs"
+    :className="`flex my-1 text-gray-300 pl-8 py-4 hover:text-gray-300 cursor-pointer bg-[var(--app-second-color) hover:bg-[var(--app-second-color)] mx-4 rounded-lg focus:bg-[var(--app-second-color)] ${active ? 'bg-[var(--app-second-color)]' : ''}`"
+    @click="redirect">
+    <span className="mr-4">
       <slot name="icon"></slot>
     </span>
-    <div class="font-bold text-[18px]">{{ $props.label }}</div>
+    <div className="font-bold text-[18px]">{{ $props.label }}</div>
   </button>
 </template>
 <script lang="ts" setup>

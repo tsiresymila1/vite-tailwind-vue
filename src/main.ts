@@ -7,13 +7,13 @@ import {io} from 'socket.io-client'
 
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 import Toast from "vue-toastification";
-import { OhVueIcon, addIcons } from "oh-vue-icons";
+import { OhVueIcon as VIcon, addIcons } from "oh-vue-icons";
 import * as FaIcons from "oh-vue-icons/icons/fa";
 import * as BIcons from "oh-vue-icons/icons/bi";
-import InputVue from "./components/common/Input.vue";
-import SelectVue from "./components/common/Select.vue";
-import ButtonVue from "./components/common/Button.vue";
-import DropDownVue from "./components/common/DropDown.vue";
+import VtInput from "./components/common/Input.vue";
+import VtSelect from "./components/common/Select.vue";
+import VtButton from "./components/common/Button.vue";
+import VtDropdown from "./components/common/DropDown.vue";
 
 import "@vuepic/vue-datepicker/dist/main.css";
 import "vue-toastification/dist/index.css";
@@ -45,11 +45,11 @@ app.use(new VueSocketIO({
 
 app.use(pinia);
 app.use(router);
-app.component("VIcon", OhVueIcon);
-app.component("VtInput", InputVue);
-app.component("VtButton", ButtonVue);
-app.component("VtSelect", SelectVue);
-app.component("VtDropdown", DropDownVue);
+app.component("VIcon", VIcon);
+app.component("VtInput", VtInput);
+app.component("VtButton", VtButton);
+app.component("VtSelect", VtSelect);
+app.component("VtDropdown", VtDropdown);
 app.use(Toast, {
   hideProgressBar: true,
   transition: "Vue-Toastification__fade",

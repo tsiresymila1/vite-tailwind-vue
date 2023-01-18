@@ -1,21 +1,21 @@
 <template>
-  <div class="w-full">
+  <div className="w-full">
     <label
       v-if="$props.label !== null"
-      class="flex py-2 text-gray-500 text-sm"
-      :for="idELmt"
+      className="flex py-2 text-gray-500 text-sm"
+      :htmlFor="idELmt"
       >
       {{ $props.label }}
     </label>
     <div
-      :class="`flex items-start border ${!focus && ($props.border ?? ' border-gray-300')}  p-2 ${$props.containerclass ?? ''} ${focus && ($props.focusclass ?? '')}`"
+      :className="`flex items-start border ${!focus && ($props.border ?? ' border-gray-300')}  p-2 ${$props.containerclass ?? ''} ${focus && ($props.focusclass ?? '')}`"
       >
-      <span v-if="$slots.addon" class="px-1"><slot name="addon"></slot></span>
+      <span v-if="$slots.addon" className="px-1"><slot name="addon"></slot></span>
       <input
         :="$attrs"
         @focus="onfocus"
         @blur="onblur"
-        :class="`mt-[2px] w-full focus:outline-none mx-2 bg-opacity-0 text-sm ${
+        :className="`mt-[2px] w-full focus:outline-none mx-2 bg-opacity-0 text-sm ${
           $props.class ?? ''
         }`"
       />

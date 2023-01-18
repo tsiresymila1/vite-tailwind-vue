@@ -3,16 +3,11 @@
     <vt-sidenav :toggle="toggle"> </vt-sidenav>
     <div className="flex flex-col w-[100%] ">
       <vt-navbar :ontoggle="ontoggle"></vt-navbar>
-      <div
-        className="h-[100%] px-8 py-8 flex items-start flex-col bg-[var(--app-base-bg)] overflow-y-scroll"
-      >
+      <div className="h-[100%] px-8 py-8 flex items-start flex-col bg-[var(--app-base-bg)] overflow-y-scroll">
         <router-view></router-view>
       </div>
-      <div
-        v-show="!toggle"
-        :class="`md:hidden absolute bg-black bg-opacity-20 h-screen w-screen z-20`"
-        @click="ontoggle"
-      ></div>
+      <div v-show="!toggle" :className="`md:hidden absolute bg-black bg-opacity-20 h-screen w-screen z-20`"
+        @click="ontoggle"></div>
     </div>
   </div>
 </template>

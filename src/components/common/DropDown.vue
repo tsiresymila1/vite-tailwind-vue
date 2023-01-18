@@ -1,7 +1,7 @@
 <template>
   <button
     :="$attrs"
-    class="relative flex items-center text-sm text-gray-600  border border-transparent rounded-md focus:outline-none"
+    className="relative flex items-center text-sm text-gray-600  border border-transparent rounded-md focus:outline-none"
     @click="toggleshow"
     >
     <slot></slot>

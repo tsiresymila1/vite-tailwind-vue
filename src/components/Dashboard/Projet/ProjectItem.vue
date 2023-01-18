@@ -1,5 +1,5 @@
 <template>
-    <div class="flex">
+    <div className="flex">
         
     </div>
 </template>

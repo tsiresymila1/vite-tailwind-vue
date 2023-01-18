@@ -1,5 +1,5 @@
 <template>
-    <nav class="flex flex-col sm:flex-row">
+    <nav className="flex flex-col sm:flex-row">
       <slot></slot>
     </nav>
 </template>

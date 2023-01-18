@@ -1,9 +1,6 @@
 <template>
-  <div
-    :class="`h-screen w-[280px] min-w-[280px] md:shadow-[0_-2px_4px_0_rgba(0,0,0,.2)] transition-[margin-left] duration-500  bg-[var(--app-base-color)] absolute md:relative ${
-      toggle && 'ml-[-280px]'
-    } z-30 sm:z-30`"
-  >
+  <div :className="`h-screen w-[280px] min-w-[280px] md:shadow-[0_-2px_4px_0_rgba(0,0,0,.2)] transition-[margin-left] duration-500  bg-[var(--app-base-color)] absolute md:relative ${toggle && 'ml-[-280px]'
+  } z-30 sm:z-30`">
     <div className="flex justify-center w-[100%] py-10">
       <img :src="logo" alt="" className=" h-[80px]" />
     </div>
