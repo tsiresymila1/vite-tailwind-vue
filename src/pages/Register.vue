@@ -224,7 +224,7 @@ export default defineComponent({
       Object.keys(data).forEach((key) => formData.append(key, data[key]));
       console.log("Data : ",data)
       axiosBase
-        .post("/register", formData, {
+        .post("/auth/register", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

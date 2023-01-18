@@ -51,7 +51,7 @@
               <option value="Test">Test</option>
               <option value="Test">Test</option>
             </vt-select> -->
-            <div className="flex pt-4 pb-2">
+            <div class="flex pt-4 pb-2">
               <vt-button
                 :disabled="false"
                 type="button"
@@ -60,14 +60,14 @@
               >
                 <img
                   v-if="isloading"
-                  className="w-[20px] h-[20px] inline"
+                  class="w-[20px] h-[20px] inline"
                   src="../assets/loader.gif"
                   alt="spinner"
                 />
                 <span v-else>Login</span>
               </vt-button>
             </div>
-            <div className="flex w-full pt-1 pb-2 justify-end ">
+            <div class="flex w-full pt-1 pb-2 justify-end ">
               <div class="text-[#acacac]">Dont't have any account ?</div>
               <vt-button
                 :disabled="false"
@@ -121,11 +121,11 @@ export default defineComponent({
       this.isloading = true;
       axiosBase
         .post(
-          "/login",
+          "/api/auth/login",
           { email: this.email, password: this.password },
           {
             headers: {
-              "Content-Type": "json",
+              'Content-Type': 'application/json'
             },
           }
         )
@@ -139,7 +139,7 @@ export default defineComponent({
             this.login(token, resp.data);
             console.log("token >>>", token);
             this.$router.push({
-              name: "admin",
+              path: "/admin",
             });
           }
         });

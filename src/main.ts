@@ -35,7 +35,7 @@ const router = createRouter({
 addIcons(...Object.values({ ...FaIcons }), ...Object.values({ ...BIcons }));
 app.use(new VueSocketIO({
   debug: true,
-  connection:io("/", {
+  connection:io("http://localhost:8000", {
     transports: ["polling", "websocket"]
   }),
 }))

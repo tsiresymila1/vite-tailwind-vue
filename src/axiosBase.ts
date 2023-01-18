@@ -3,9 +3,17 @@ import { useAuth } from "./store/auth";
 import { useToast } from "vue-toastification";
 
 export const axiosBase = axios.create({
-  baseURL: import.meta.env.API_BASE_URL,
+  // baseURL: "",
+  // baseURL: import.meta.env.VITE_API_BASE_URL,
   withCredentials: true,
+  // headers: {
+  //   "Access-Control-Allow-Origin" : "*"
+  // }
 });
+
+// axiosBase.defaults.headers.common['Access-Control-Request-Headers'] = "*"
+// axiosBase.defaults.headers.common['Access-Control-Request-Method'] = "*"
+
 
 axiosBase.interceptors.request.use((config: AxiosRequestConfig) => {
   const userStore = useAuth();
@@ -13,7 +21,6 @@ axiosBase.interceptors.request.use((config: AxiosRequestConfig) => {
     if (config.headers) {
       config.headers["Authorization"] = userStore.berear;
     }
-    config.headers = { Authorization: userStore.berear };
   }
   return config;
 });
