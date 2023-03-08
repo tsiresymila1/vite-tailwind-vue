@@ -1,9 +1,10 @@
 <template>
   <button
     :="$attrs"
-    className="relative flex items-center text-sm text-gray-600  border border-transparent rounded-md focus:outline-none"
+    v-click-away="onClickAway"
+    class="relative flex items-center text-sm text-gray-600 border border-transparent rounded-md focus:outline-none"
     @click="toggleshow"
-    >
+  >
     <slot></slot>
   </button>
 </template>
@@ -16,6 +17,7 @@ defineProps<Props>();
 </script>
 <script lang="ts">
 import { ButtonHTMLAttributes, defineComponent } from "vue";
+import Login from "../../pages/Login.vue";
 export default defineComponent({
   name: "vt-dropdown",
   data: () => {
@@ -24,11 +26,22 @@ export default defineComponent({
     };
   },
   methods: {
-    toggleshow: function () {
+    toggleshow: function (e: any) {
+      if (e) {
+        e.stopImmediatePropagation();
+        e.stopPropagation();
+      }
       const elm = document.querySelector(`${this.data_target}`)!;
       if (elm) {
         elm.classList.toggle("hidden");
         this.show = !this.show;
+      }
+    },
+    onClickAway: function () {
+      const elm = document.querySelector(`${this.data_target}`)!;
+      if (elm) {
+        elm.classList.add("hidden");
+        this.show = false;
       }
     },
   },
@@ -49,7 +62,7 @@ export default defineComponent({
     )!;
     elm.forEach((e) => {
       e.removeEventListener("click", () => {
-        console.log("removed")
+        console.log("removed");
       });
     });
   },

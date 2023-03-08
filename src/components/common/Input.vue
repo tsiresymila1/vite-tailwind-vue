@@ -1,26 +1,18 @@
 <template>
-  <div className="w-full">
-    <label
-      v-if="$props.label !== null"
-      className="flex py-2 text-gray-500 text-sm"
-      :htmlFor="idELmt"
-      >
-      {{ $props.label }}
-    </label>
-    <div
-      :className="`flex items-start border ${!focus && ($props.border ?? ' border-gray-300')}  p-2 ${$props.containerclass ?? ''} ${focus && ($props.focusclass ?? '')}`"
-      >
-      <span v-if="$slots.addon" className="px-1"><slot name="addon"></slot></span>
-      <input
-        :="$attrs"
-        @focus="onfocus"
-        @blur="onblur"
-        :className="`mt-[2px] w-full focus:outline-none mx-2 bg-opacity-0 text-sm ${
-          $props.class ?? ''
-        }`"
-      />
+    <div class="w-full">
+      <label v-if="$props.label !== null" class="flex py-2 text-gray-500 text-sm" :htmlFor="idELmt">
+        {{ $props.label }}
+      </label>
+      <div :className="`flex items-start border ${!focus && ($props.border ?? ' border-gray-300')
+      }  p-2 ${$props.containerclass ?? ''} ${focus && ($props.focusclass ?? '')
+      }`">
+        <span v-if="$slots.addon" class="px-1">
+          <slot name="addon"></slot>
+        </span>
+        <input :="$attrs" auto-complete="do-not-autofill" @focus="onfocus" @blur="onblur" :className="`mt-[2px] w-full focus:outline-none bg-transparent mx-2 bg-opacity-0 text-sm ${$props.class ?? ''
+        }`" />
+      </div>
     </div>
-  </div>
 </template>
 <script lang="ts" setup>
 interface InputProps extends InputHTMLAttributes {

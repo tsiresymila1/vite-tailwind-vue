@@ -5,12 +5,12 @@ export default defineComponent({
     connect: function () {
       console.log('Socket to notification channel connected')
     },
-    message: function(data){
-      console.log("Data received : ", data)
+    event: function(data){
+      console.log("Data received >>> ", data)
     }
   },
   mounted(){
-    this.$socket.emit('message', {test: "data"})
+    // this.$socket.emit('message', {test: "data"})
   }
 });
 </script>

@@ -1,7 +1,7 @@
 <template>
-  <div className="flex items-center justify-center h-screen">
-    <div className="flex flex-col">
-      <div className="col py-4">
+  <div class="flex items-center justify-center h-screen">
+    <div class="flex flex-col">
+      <div class="col py-4">
         <img src="../assets/notfound.jpg" style="height: 120px !important" />
       </div>
       <div>NOT FOUND</div>

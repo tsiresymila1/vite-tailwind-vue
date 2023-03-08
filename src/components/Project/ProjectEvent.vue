@@ -1,11 +1,8 @@
-<template>
-    <nav class="flex flex-col sm:flex-row">
-      <slot></slot>
-    </nav>
-</template>
+<template></template>
 <script lang="ts">
 import { defineComponent } from "vue";
 
 export default defineComponent({
+    
 });
 </script>

@@ -1,14 +1,14 @@
 <template>
-  <div className="flex h-[100vh] bg-white-100 my-0">
-    <div className="m-auto">
+  <div class="flex h-[100vh] bg-white-100 my-0">
+    <div class="m-auto">
       <form auto-complete="off">
-        <div className="bg-white shadow-md border border-gray-100 md:w-[28rem] w-[80vw] p-8 rounded-sm">
-          <div className="space-y-3">
-            <div className="flex items-center justify-center pb-[30px] pt-2">
-              <img src="../assets/vue.svg" className="h-[80px] object-contain" alt="logo" />
+        <div class="bg-white shadow-md border border-gray-100 md:w-[28rem] w-[80vw] p-8 rounded-sm">
+          <div class="space-y-3">
+            <div class="flex items-center justify-center pb-[30px] pt-2">
+              <img src="../assets/vue.svg" class="h-[80px] object-contain" alt="logo" />
             </div>
-            <div className="flex items-center justify-center py-2">
-              <h3 className="text-[var(--app-base-color)] text-2xl font-bold">
+            <div class="flex items-center justify-center py-2">
+              <h3 class="text-[var(--app-base-color)] text-2xl font-bold">
                 Login
               </h3>
             </div>
@@ -31,18 +31,17 @@
               <option value="Test">Test</option>
               <option value="Test">Test</option>
             </vt-select> -->
-            <div className="flex pt-4 pb-2">
+            <div class="flex pt-4 pb-2">
               <vt-button :disabled="false" type="button"
-                className="w-full bg-[var(--app-base-color)] text-center text-white rounded-none" @click="singin">
-                <img v-if="isloading" className="w-[20px] h-[20px] inline" src="../assets/loader.gif" alt="spinner" />
+                class="w-full bg-[var(--app-base-color)] text-center text-white rounded-none" @click="singin">
+                <img v-if="isloading" class="w-[20px] h-[20px] inline" src="../assets/loader.gif" alt="spinner" />
                 <span v-else>Login</span>
               </vt-button>
             </div>
-            <div className="flex w-full pt-1 pb-2 justify-end ">
-              <div className="text-[#acacac]">Dont't have any account ?</div>
+            <div class="flex w-full pt-1 pb-2 justify-end ">
+              <div class="text-[#acacac]">Dont't have any account ?</div>
               <vt-button :disabled="false" type="button"
-                className="bg-transparent text-center text-[var(--app-base-color)] rounded-none py-[2px]"
-                @click="singup">
+                class="bg-transparent text-center text-[var(--app-base-color)] rounded-none py-[2px]" @click="singup">
                 <span>Register</span>
               </vt-button>
             </div>
@@ -89,7 +88,7 @@ export default defineComponent({
       this.isloading = true;
       axiosBase
         .post(
-          "/api/auth/login",
+          "/users/login",
           { email: this.email, password: this.password },
           {
             headers: {
@@ -103,11 +102,12 @@ export default defineComponent({
         .then((resp) => {
           console.log(resp);
           if (resp.headers) {
-            const token = resp.headers["authorization"];
-            this.login(token, resp.data);
-            console.log("token >>>", token);
+            console.log("Header >>>",resp.headers)
+            const token = resp.headers["authorization"] ?? `Bearer ${resp.data.token}`;
+            this.login(token, resp.data.user);
+            console.log("token >>>", resp.data, token);
             this.$router.push({
-              path: "/admin",
+              path: "/",
             });
           }
         });

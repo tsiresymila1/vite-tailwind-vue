@@ -1,8 +1,8 @@
 <template>
-  <div className="w-full">
+  <div class="w-full">
     <label
       v-if="$props.label !== null"
-      className="flex py-2 text-gray-500 text-sm"
+      class="flex py-2 text-gray-500 text-sm"
       :htmlFor="idELmt"
       >
       {{ $props.label }}
@@ -14,7 +14,7 @@
         focus && ($props.focusclass ?? '')
       }`"
       >
-      <span v-if="$slots.addon" className="px-1"><slot name="addon"></slot></span>
+      <span v-if="$slots.addon" class="px-1"><slot name="addon"></slot></span>
       <select
         :="$attrs"
         :className="`w-full focus:outline-none px-2 py-1 mt-[2px] bg-transparent placeholder:text-gray-400 text-sm ${
@@ -61,3 +61,4 @@ export default defineComponent({
   },
 });
 </script>
+

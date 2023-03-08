@@ -4,11 +4,9 @@ import { useToast } from "vue-toastification";
 
 export const axiosBase = axios.create({
   // baseURL: "",
-  // baseURL: import.meta.env.VITE_API_BASE_URL,
-  withCredentials: true,
-  // headers: {
-  //   "Access-Control-Allow-Origin" : "*"
-  // }
+  
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+
 });
 
 // axiosBase.defaults.headers.common['Access-Control-Request-Headers'] = "*"
@@ -30,6 +28,11 @@ axiosBase.interceptors.response.use(
     return response;
   },
   async (error: AxiosError) => {
+    console.log("Response :", error)
+    if(error.response?.status === 401){
+      console.log("Redirect")
+      // window.open('/login','_self')
+    }
     // const originalConfig = error.config;
     // if (error.response?.status === 401 && !originalConfig._retry) {
     //   originalConfig._retry = true;
@@ -46,8 +49,11 @@ axiosBase.interceptors.response.use(
     //   }
     // }
     const toast = useToast();
-    toast.error(error.message);
-    console.log("Error", error.message);
+    if(error.response && error.response.data){
+      toast.error( error.response.data['detail']);
+    }else{
+      toast.error(error.message);
+    }
     return Promise.reject(error);
   }
 );

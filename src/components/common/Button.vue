@@ -1,8 +1,6 @@
 <template>
-  <button
-    :="$attrs"
-    :className="`font-[Conduit] px-4 py-2 rounded-md active:bg-opacity-75 hover:bg-opacity-75 ${$attrs.class}`"
-    >
+  <button :="$attrs" class="font-[Conduit] px-4 py-2 rounded-md active:bg-opacity-75 hover:bg-opacity-75"
+    :class="`${$attrs.className}`">
     <slot></slot>
   </button>
 </template>
@@ -16,6 +14,6 @@ defineProps<Props>();
 import { ButtonHTMLAttributes, defineComponent, defineProps } from "vue";
 
 export default defineComponent({
-  name: "vt-button",
+  name: "VtButton",
 });
 </script>
